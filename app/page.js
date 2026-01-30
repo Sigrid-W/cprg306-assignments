@@ -20,7 +20,7 @@ export default function Page() {
           <span key={item.href} className="flex items-center gap-3">
             <Link
               href={item.href}
-              className="hover:text-blue-600 duration-300 ease-linear"
+              className="hover:text-blue-600"
             >
               {item.title}
             </Link>
