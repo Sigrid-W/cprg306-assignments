@@ -20,6 +20,10 @@ const navItems = [
     title: "Go to Week 6",
     href: "week-6",
   },
+  {
+    title: "Go to Week 7",
+    href: "week-7",
+  },
 ]
 
 export default function Page() {
