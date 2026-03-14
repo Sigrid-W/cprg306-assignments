@@ -22,7 +22,7 @@ export default function ItemList({items, onItemSelect})
                 <button
                     key={field}
                     onClick={() => setSortBy(field)}
-                    className={`px-4 py-2 rounded-md font-semibold transition
+                    className={`px-4 py-2 mt-5 mb-2 rounded-md font-semibold transition
                         ${sortBy === field
                         ? "bg-rose-500 text-white"
                         : "bg-rose-200 dark:bg-gray-700 dark:text-gray-200"}`}>
