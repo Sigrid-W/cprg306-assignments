@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import ItemList from "./GroceryItemList";
 import NewItem from "./NewGroceryItem";
-import itemsData from "./grocery-items.json";
+import itemsData from "./groceryItems.json";
 import MealIdeas from "./MealIdeas";
 
 export default function Page() {
@@ -14,8 +14,8 @@ export default function Page() {
     
 
     function handleAddItem(newItem){
-        setItems([...itemsData, newItem]);
-    }
+    setItems(prev => [...prev, newItem]);
+}
 
     function handleItemSelect(item){
         const newName = item.name.split(",")[0].replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, '').trim();

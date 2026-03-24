@@ -1,7 +1,7 @@
 "use client"
 
 import{ useState } from "react";
-import itemsData from "./grocery-items.json";
+import itemsData from "./groceryItems.json";
 
 export default function NewItem({ onAddItem }) {
     const[name, setName] = useState("");
@@ -39,7 +39,8 @@ export default function NewItem({ onAddItem }) {
                     name="name"
                     onChange={(e) => setName(e.target.value)}
                     type="text" 
-                    value={name} 
+                    value={name}
+                    required 
                     />
             </div>
             <div className="flex flex-col gap-2">
@@ -52,7 +53,7 @@ export default function NewItem({ onAddItem }) {
                     type="number" 
                     min="1"
                     max="99"
-                    value={quantity} 
+                    value={quantity}
                     />
             </div>
             <div className="flex flex-col gap-2">
