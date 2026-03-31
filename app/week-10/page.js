@@ -64,7 +64,7 @@ export default function LandingPage() {
             )}
 
             <Link
-              href="/week-9/shoppingList"
+              href="/week-10/shoppingList"
               className="block w-full text-center text-white p-2 bg-rose-400 rounded-md font-semibold hover:bg-rose-500 dark:bg-rose-600 dark:hover:bg-rose-500"
             >
               Go to Shopping List

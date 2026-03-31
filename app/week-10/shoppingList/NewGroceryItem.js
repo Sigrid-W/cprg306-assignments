@@ -1,23 +1,20 @@
 "use client"
 
 import{ useState } from "react";
-import itemsData from "./groceryItems.json";
+
 
 export default function NewItem({ onAddItem }) {
+    const categories = ["produce", "dairy", "bakery", "meat", "canned goods", "dry goods", "household"];
+
     const[name, setName] = useState("");
     const[quantity, setQuantity] = useState(1);
-    const[category, setCategory] = useState("produce"); 
-    
-    const getUniqueValues = (data, field) => [
-        ...new Set(data.map((item) => item[field]))
-    ];
+    const[category, setCategory] = useState("produce");
 
     function handleSubmit(e){
         e.preventDefault();
         const item = {
-            id : crypto.randomUUID(),
             name,
-            quantity,
+            quantity: parseInt(quantity),
             category,
         };
         onAddItem(item);
@@ -33,7 +30,7 @@ export default function NewItem({ onAddItem }) {
             onSubmit={handleSubmit}>
             <h2 className="text-2xl font-bold text-center text-gray-700 dark:text-white">Add New Item</h2>
             <div className="flex flex-col gap-2">
-                <label className="font-semibold text-lg">Name</label>
+                <label htmlFor="name" className="font-semibold text-lg">Name</label>
                 <input className="border-2 border-solid border-gray-400 p-2 rounded-md w-full"
                     id="name"
                     name="name"
@@ -44,7 +41,7 @@ export default function NewItem({ onAddItem }) {
                     />
             </div>
             <div className="flex flex-col gap-2">
-                <label className="font-semibold text-lg">Quantity</label>
+                <label htmlFor="quantity" className="font-semibold text-lg">Quantity</label>
                 <input 
                     className="border-2 border-solid border-gray-400 p-2 rounded-md w-full"
                     id="quantity"
@@ -57,7 +54,7 @@ export default function NewItem({ onAddItem }) {
                     />
             </div>
             <div className="flex flex-col gap-2">
-                <label className="font-semibold text-lg">Category</label>
+                <label htmlFor="category" className="font-semibold text-lg">Category</label>
                 <select
                     id="category"
                     name="category"
@@ -66,11 +63,11 @@ export default function NewItem({ onAddItem }) {
                     type="text" 
                     value={category}
                     > 
-                    {getUniqueValues(itemsData, "category").map((category) => (
+                    {categories.map((category) => (
                         <option key={category} value={category}>
-                            {category}
-                        </option>
-                    ))}
+                         {category}
+                     </option>
+                ))}
 
                 </select>
             </div>

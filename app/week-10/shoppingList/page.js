@@ -12,7 +12,7 @@ import { getItems, addItem } from "../_services/shoppingListService";
 export default function Page() {
     const { user } = useUserAuth();
     const router = useRouter();
-    const [items, setItems] = useState(itemsData);
+    const [items, setItems] = useState([]);
     const [selectedItemName, setSelectedItemName] = useState("");
     
     useEffect(() => {
@@ -27,7 +27,7 @@ export default function Page() {
 
     async function handleAddItem(newItem){
         const id = await addItem(user.uid, newItem);
-        setItems(prev => [...prev, newItem]);
+        setItems(prev => [...prev, { ...newItem, id }]);
 }
 
     function handleItemSelect(item){
